@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CALCULATER</title>
+
+</head>
+<body>
+    <input type = "text" id = "first" />
+    <input type = "text" id = "second" />
+
+    <button onclick = 'return cal(document.getElementById("first").value, document.getElementById("second").value, " + ", "res")'>+</button>
+    <button onclick = 'cal(document.getElementById("first").value, document.getElementById("second").value, " - ", "res")'>-</button>
+    <button onclick = 'cal(document.getElementById("first").value, document.getElementById("second").value, " * ", "res")'>*</button>
+    <button onclick = 'cal(document.getElementById("first").value, document.getElementById("second").value, " / ", "res")'>/</button>
+    <div id = "res" ></div>
+</body>
+<script type="text/javascript">
+    function cal(a, b, op, res) {
+        var result = eval(a+op+b);
+        alert(result)
+        document.getElementById(res).innerHTML= result;
+
+    }
+</script>

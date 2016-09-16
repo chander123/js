@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<div id="err"></div>
+<div id="res"></div>
+</body>
+<script type="text/javascript">
+
+
+var Math = function() {
+   this.sum = function(a, b, success, fail) {
+    if (!isNaN(a) && !isNaN(b)) {
+      var res = a + b;
+      success(res);
+    } else {
+      var err = "Please enter numaric value";
+      fail(err);
+    }
+
+   };
+   this.sub = function(a, b, success, fail) {
+    if (!isNaN(a) && !isNaN(b)) {
+      var res = a - b;
+      success(res);
+    } else {
+      var err = "Please enter numaric value";
+      fail(err);
+    }
+   };
+   this.mul =function(a, b, success, fail) {
+    if (!isNaN(a) && !isNaN(b)) {
+      var res = a * b;
+      success(res);
+    } else {
+      var err = "Please enter numaric value";
+      fail(err);
+    }
+   }
+
+}
+
+var mathoprations = new Math;
+
+
+mathoprations.sum(1, 6, success, fail);
+
+function success(res){
+  console.log(res);
+ document.getElementById('res').innerHTML = '<span>Result:' + res + '</span>';
+}
+
+ function fail (res){
+  console.log(res);
+ document.getElementById('res').innerHTML = '<span>Result:' + res + '</span>';
+}
+</script>
+</html>

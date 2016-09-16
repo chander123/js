@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head><title></title>
+<style type="text/css">
+  .red {
+    color: red;
+  }
+  .black {
+    color: black;
+  }
+  .green {
+    color:green;
+  }
+</style>
+</head>
+<body>
+ <div id ="test" class="ab cd MyClass">test content</div>
+ <div class="test1 cd red MyClass">test content</div>
+ <div class="test1 cd green MyClass">test content</div>
+ <div class="MyClass">test content</div>
+ <div class="MyClass">test content</div>
+ <p>p tag</p>
+</body>
+<script type="text/javascript">
+    function addClass (elementatrr, classname) {
+      var all_elements = document.querySelectorAll(elementatrr);
+      console.log(all_elements);
+      for (var i=0; i<all_elements.length; i++) {
+         all_elements[i].className = all_elements[i].className ? all_elements[i].className +' '+classname : classname;
+      }
+    }
+
+    function removeClass(elementatrr, classname) {
+      var all_elements = document.querySelectorAll(elementatrr);
+      for (var i=0; i<all_elements.length; i++) {
+         var reg = new RegExp('(\\s|^)'+classname+'(\\s|$)');
+         var removeclass = all_elements[i].className.replace(reg, ' ');
+         all_elements[i].className = removeclass;
+      }
+
+    }
+
+  //removeClass('div', 'MyClass');
+  addClass('div', 'black');
+
+  </script>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+  function f(x, y, z) {
+    console.log(f.arguments);
+    // first, check that the right # of arguments were passed.
+    if (f.arguments.length != 3) {
+        /*alert("function f called with " + f.arguments.length +
+              "arguments, but it expects 3 arguments.");*/
+        return null;
+    }
+
+
+}
+//f('a','q');
+
+
+/***********************************************************************************/
+
+function max()
+{
+    var m = -Number.MAX_VALUE; // Navigator 3.0 only. In 2.0 use -1.79E+308
+
+    // loop through all the arguments, looking for, and
+    // remembering, the biggest.
+    for(var i = 0; i < max.arguments.length; i++)
+        if (max.arguments[i] > m)
+          m = max.arguments[i];
+    // return the biggest.
+    return m;
+}
+var largest = max(1, 10, 100, 2, 3, 1000, 4, 5, 10000, 6);
+console.log(largest);
+
+/***********************************************************************************/
+
+
+// Define the constructor.
+// Note how it initializes the object referred to by "this"
+function Rectangle(w, h)
+{
+    this.width = w;
+    this.height = h;
+    this.area = function () {
+      return this.width * this.height;
+    }
+}
+
+rect1 = new Rectangle(2, 9);
+//rect2 = new Rectangle(8.5, 11);
+//console.log(rect1);
+function compute_area()
+{
+    return this.width * this.height;
+}
+
+rect = new Rectangle(2, 8);
+//rect.area = compute_area;
+a = rect.area();
+//console.log(a);
+
+
+/***********************************************************************************/
+
+function Circle(x, y, r)
+{
+    this.x = x;  // the X coordinate of the center of the  circle
+    this.y = y;  // the Y coordinate of the center of the circle
+    this.r = r;  // the radius of the circle
+}
+
+
+new Circle(0,0,0);
+
+Circle.prototype.pi = 3.14159;
+
+function Circle_circumference() { return 2 * this.pi * this.r; }
+function Circle_area() { return this.pi * this.r * this.r; }
+
+Circle.prototype.circumference = Circle_circumference;
+Circle.prototype.area = Circle_area;
+
+Circle.prototype.url = "images/default_circle.gif";
+
+c = new Circle(0.0, 0.0, 1.0);
+a = c.area();
+p = c.circumference();
+
+/***********************************************************************************/
+function Complex(x,y) {
+    this.x = x;   // real part of complex number
+    this.y = y;   // imaginary part of complex number.
+}
+
+// force the prototype object to be created.
+new Complex(0,0);
+
+// define some methods
+Complex.prototype.valueOf = new Function("return this.x * this.y");
+Complex.prototype.toString = new Function("return '{'+this.x+','+this.y+'}'");
+
+// create new complex number object
+c = new Complex(4,8);
+
+x = c + "test";          // x = 8
+
+console.log(x);
+
+/***********************************************************************************/
+function Person(first, last, age, eye) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eye;
+}
+
+Person.prototype.name = function() {
+    return this.firstName + " " + this.lastName
+};
+
+Person.prototype.a = function() {
+    return this.age + " " + this.eyeColor;
+};
+
+p = new Person('ram', 'sigh', 34, 'black');
+
+console.log(p.a());
+
+</script>
+</html>
+
+
+
+
+
+
+
